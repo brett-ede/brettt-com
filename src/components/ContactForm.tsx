@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { site } from '../data'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -70,7 +71,8 @@ export function ContactForm() {
       </button>
       {status === 'error' ? (
         <p className="form-error" role="alert">
-          Something went wrong. Email me directly instead.
+          Something went wrong.{' '}
+          <a href={`mailto:${site.email}`}>Email {site.email}</a> instead.
         </p>
       ) : null}
     </form>

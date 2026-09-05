@@ -11,8 +11,8 @@ export function Layout() {
         Skip to content
       </a>
       <header className="site-header">
-        <NavLink to="/" className="wordmark">
-          {site.name}
+        <NavLink to="/" className="wordmark" end>
+          brettt
         </NavLink>
         <nav aria-label="Primary">
           <NavLink to="/" className={navClass} end>
@@ -27,13 +27,12 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="site-footer">
-        <p>
-          {site.name} · {site.location}
-        </p>
+        <p>{site.name} — Made in Canada 🇨🇦</p>
         <p className="footer-links">
           <a href={site.links.linkedin}>LinkedIn</a>
-          <a href={`mailto:${site.email}`}>Email</a>
           <a href={site.links.dribbble}>Dribbble</a>
+          <a href={site.links.github}>GitHub</a>
+          <a href={`mailto:${site.email}`}>Email</a>
         </p>
       </footer>
     </div>
