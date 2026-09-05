@@ -1,18 +1,5 @@
 # brettt.com
 
-Personal site for Brett Ede. Built with Vite, React, and TypeScript. Hosted on Netlify so the domain can leave Squarespace.
+Personal site for Brett Ede. Built with Vite, React, and TypeScript. Hosted on Netlify.
 
-## Local
-
-```bash
-npm install
-npm run dev
-```
-
-## Deploy
-
-```bash
-npx netlify deploy --prod
-```
-
-After the first deploy, point `brettt.com` and `www.brettt.com` at Netlify, then cancel the Squarespace plan. Email on `updates.brettt.com` is separate and should keep working if those DNS records are left alone.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2dde8058-7762-4112-a173-7380488d1e68/deploy-status)](https://app.netlify.com/projects/brettt-175/deploys)
