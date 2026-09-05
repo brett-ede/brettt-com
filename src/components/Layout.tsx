@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { site } from '../data'
 
@@ -8,8 +8,14 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 function ScrollToTop() {
   const { pathname } = useLocation()
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+
+    window.scrollTo(0, 0)
+    const frame = requestAnimationFrame(() => window.scrollTo(0, 0))
+    return () => cancelAnimationFrame(frame)
   }, [pathname])
 
   return null
