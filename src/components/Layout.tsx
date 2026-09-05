@@ -1,12 +1,30 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { site } from '../data'
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? 'nav-link is-active' : 'nav-link'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+
+    window.scrollTo(0, 0)
+    const frame = requestAnimationFrame(() => window.scrollTo(0, 0))
+    return () => cancelAnimationFrame(frame)
+  }, [pathname])
+
+  return null
+}
+
 export function Layout() {
   return (
     <div className="page">
+      <ScrollToTop />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
