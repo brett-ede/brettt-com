@@ -9,7 +9,7 @@ export const site = {
   links: {
     linkedin: 'https://www.linkedin.com/in/brettede/',
     dribbble: 'https://dribbble.com/brettede',
-    github: 'https://github.com/brettede',
+    github: 'https://github.com/brett-ede',
   },
 }
 
