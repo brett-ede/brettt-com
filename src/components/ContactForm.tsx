@@ -10,20 +10,41 @@ export function ContactForm() {
     event.preventDefault()
     const form = event.currentTarget
     const data = new FormData(form)
+
+    if (String(data.get('bot-field') ?? '').trim()) {
+      setStatus('sent')
+      form.reset()
+      return
+    }
+
     setStatus('sending')
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify({
           name: data.get('name'),
           email: data.get('email'),
           message: data.get('message'),
-          'bot-field': data.get('bot-field'),
+          _subject: 'New message from brettt.com',
+          _replyto: data.get('email'),
+          _template: 'box',
+          _captcha: 'false',
         }),
       })
       if (!response.ok) throw new Error('Request failed')
+      const result = (await response.json()) as {
+        success?: boolean | string
+        message?: string
+      }
+      const rejected =
+        (result.success === false || result.success === 'false') &&
+        !/activat|confirm/i.test(result.message ?? '')
+      if (rejected) throw new Error(result.message ?? 'Request failed')
       form.reset()
       setStatus('sent')
     } catch {
@@ -40,15 +61,7 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      className="contact-form"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      onSubmit={onSubmit}
-    >
-      <input type="hidden" name="form-name" value="contact" />
+    <form className="contact-form" onSubmit={onSubmit}>
       <p className="honeypot">
         <label>
           Don’t fill this out
