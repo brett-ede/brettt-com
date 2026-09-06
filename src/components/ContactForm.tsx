@@ -10,17 +10,18 @@ export function ContactForm() {
     event.preventDefault()
     const form = event.currentTarget
     const data = new FormData(form)
-    const body = new URLSearchParams()
-    for (const [key, value] of data.entries()) {
-      if (typeof value === 'string') body.append(key, value)
-    }
     setStatus('sending')
 
     try {
-      const response = await fetch('/__forms.html', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          message: data.get('message'),
+          'bot-field': data.get('bot-field'),
+        }),
       })
       if (!response.ok) throw new Error('Request failed')
       form.reset()
