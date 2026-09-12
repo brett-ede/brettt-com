@@ -87,6 +87,7 @@ export const experience = [
 ]
 
 export type WorkSlug =
+  | 'worthy'
   | 'eventbrite-app-marketplace'
   | 'eventbrite-developer-platform'
   | 'picatic'
@@ -106,6 +107,29 @@ export type WorkProject = {
 }
 
 export const work: WorkProject[] = [
+  {
+    slug: 'worthy',
+    title: 'Worthy',
+    dates: '2025 – current',
+    href: '/work/worthy',
+    website: 'https://worthy.brettt.com/home',
+    websiteLabel: 'Visit Worthy',
+    summary:
+      'A living inventory of what you own, built from purchase receipts — with values that stay honest as time passes.',
+    body: [
+      'Most people have no idea what their things are worth, and a spreadsheet is the last tool anyone wants to keep. Worthy turns the purchase confirmations already sitting in your inbox into a current picture of what you own.',
+      'Connect Gmail read-only or forward a receipt. Worthy pulls out the physical items, files them by category, and keeps each value from drifting into fantasy — category depreciation, market prices when we can find them, and a photo or a few taps for anything that never arrived as an email.',
+    ],
+    result:
+      'A private inventory that builds itself from receipts you already have, with values that stay current over time.',
+    cover: '/images/worthy-thumb.png',
+    images: [
+      {
+        src: '/images/worthy-cover.png',
+        alt: 'Worthy homepage — inbox receipts turned into a living inventory',
+      },
+    ],
+  },
   {
     slug: 'eventbrite-app-marketplace',
     title: 'Eventbrite App Marketplace',
