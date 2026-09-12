@@ -127,6 +127,10 @@ export const work: WorkProject[] = [
     gallery: 'app-screens',
     images: [
       {
+        src: '/images/worthy-cover.png',
+        alt: 'Worthy on iPhone — home inventory, inbox scan, and an item’s value over time',
+      },
+      {
         src: '/images/worthy-appstore-1-home.png',
         alt: 'Worthy home — Know what you own, with a running total of everything you have bought',
       },

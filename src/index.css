@@ -457,16 +457,6 @@ textarea {
   margin-top: 2rem;
 }
 
-.case-app-screens .case-hero-image {
-  display: flex;
-  justify-content: center;
-  padding: 1.6rem 1rem;
-}
-
-.case-app-screens .case-hero-image img {
-  width: min(100%, 26rem);
-}
-
 .case-app-screens .case-gallery {
   grid-template-columns: 1fr 1fr;
 }
