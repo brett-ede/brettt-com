@@ -104,6 +104,7 @@ export type WorkProject = {
   result: string
   cover: string
   images: { src: string; alt: string }[]
+  gallery?: 'app-screens'
 }
 
 export const work: WorkProject[] = [
@@ -123,10 +124,27 @@ export const work: WorkProject[] = [
     result:
       'A private inventory that builds itself from receipts you already have, with values that stay current over time.',
     cover: '/images/worthy-thumb.png',
+    gallery: 'app-screens',
     images: [
       {
-        src: '/images/worthy-cover.png',
-        alt: 'Worthy homepage — inbox receipts turned into a living inventory',
+        src: '/images/worthy-appstore-1-home.png',
+        alt: 'Worthy home — Know what you own, with a running total of everything you have bought',
+      },
+      {
+        src: '/images/worthy-appstore-2-scan.png',
+        alt: 'Worthy scan — purchase confirmations in Gmail turned into tracked assets',
+      },
+      {
+        src: '/images/worthy-appstore-3-assets.png',
+        alt: 'Worthy assets — every item in one place, with search and value at a glance',
+      },
+      {
+        src: '/images/worthy-appstore-4-detail.png',
+        alt: 'Worthy item detail — watch estimated market value change over time',
+      },
+      {
+        src: '/images/worthy-appstore-5-insights.png',
+        alt: 'Worthy insights — a weekly recap of spending by category and merchant',
       },
     ],
   },

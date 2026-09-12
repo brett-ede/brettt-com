@@ -457,6 +457,30 @@ textarea {
   margin-top: 2rem;
 }
 
+.case-app-screens .case-hero-image {
+  display: flex;
+  justify-content: center;
+  padding: 1.6rem 1rem;
+}
+
+.case-app-screens .case-hero-image img {
+  width: min(100%, 26rem);
+}
+
+.case-app-screens .case-gallery {
+  grid-template-columns: 1fr 1fr;
+}
+
+.case-app-screens .case-gallery figure {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem 0.8rem;
+}
+
+.case-app-screens .case-gallery img {
+  width: min(100%, 24rem);
+}
+
 .more-work {
   margin-top: 3.2rem;
   padding-top: 1.4rem;
@@ -512,5 +536,9 @@ textarea {
 
   .hero-body {
     font-size: 1rem;
+  }
+
+  .case-app-screens .case-gallery {
+    grid-template-columns: 1fr;
   }
 }
