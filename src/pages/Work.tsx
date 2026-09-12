@@ -17,7 +17,11 @@ export function Work() {
   const others = work.filter((item) => item.slug !== project.slug)
 
   return (
-    <article className="case">
+    <article
+      className={
+        project.gallery === 'app-screens' ? 'case case-app-screens' : 'case'
+      }
+    >
       <header className="hero compact">
         <p className="kicker">
           {String(index + 1).padStart(2, '0')} / {project.dates}
