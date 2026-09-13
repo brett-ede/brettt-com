@@ -318,6 +318,10 @@ textarea {
   filter: saturate(0.86);
 }
 
+.work-media-top img {
+  object-position: top center;
+}
+
 .work-row:hover .work-media img {
   filter: none;
 }

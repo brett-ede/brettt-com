@@ -87,7 +87,13 @@ export function Home() {
                   </div>
                   <p>{project.summary}</p>
                 </div>
-                <div className="work-media">
+                <div
+                  className={
+                    project.gallery === 'app-screens'
+                      ? 'work-media work-media-top'
+                      : 'work-media'
+                  }
+                >
                   <img src={project.cover} alt="" />
                 </div>
               </Link>
